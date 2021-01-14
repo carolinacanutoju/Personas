@@ -71,6 +71,9 @@ namespace UTTT.Ejemplo.Persona
                     if (this.idPersona == 0)
                     {
                         this.lblAccion.Text = "Agregar";
+                        DateTime tiempo = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
+                        this.dteCalendar.TodaysDate = tiempo;
+                        this.dteCalendar.TodaysDate = tiempo;
                     }
                     else
                     {
@@ -79,6 +82,12 @@ namespace UTTT.Ejemplo.Persona
                         this.txtAPaterno.Text = this.baseEntity.strAPaterno;
                         this.txtAMaterno.Text = this.baseEntity.strAMaterno;
                         this.txtClaveUnica.Text = this.baseEntity.strClaveUnica;
+                        DateTime? fechaNacimiento = this.baseEntity.dteFechaNacimiento;
+                        if (fechaNacimiento != null)
+                        {
+                            this.dteCalendar.TodaysDate = (DateTime)fechaNacimiento;
+                            this.dteCalendar.SelectedDate = (DateTime)fechaNacimiento;
+                        }
                         this.setItem(ref this.ddlSexo, baseEntity.CatSexo.strValor);
                     }                
                 }
@@ -105,6 +114,8 @@ namespace UTTT.Ejemplo.Persona
                     persona.strAMaterno = this.txtAMaterno.Text.Trim();
                     persona.strAPaterno = this.txtAPaterno.Text.Trim();
                     persona.idCatSexo = int.Parse(this.ddlSexo.Text);
+                    DateTime fechaNacimiento = this.dteCalendar.SelectedDate.Date;
+                    persona.dteFechaNacimiento = fechaNacimiento;
                     dcGuardar.GetTable<UTTT.Ejemplo.Linq.Data.Entity.Persona>().InsertOnSubmit(persona);
                     dcGuardar.SubmitChanges();
                     this.showMessage("El registro se agrego correctamente.");
@@ -180,5 +191,10 @@ namespace UTTT.Ejemplo.Persona
         }
 
         #endregion
+
+        protected void dteCalendar_SelectionChanged(object sender, EventArgs e)
+        {
+            txtFechaa.Text = dteCalendar.SelectedDate.AddDays(7).ToShortDateString();
+        }
     }
 }
