@@ -40,8 +40,10 @@ namespace UTTT.Ejemplo.Linq.Data.Properties {
         //[global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         //[global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
         //[global::System.Configuration.DefaultSettingValueAttribute("Data Source=caro;Initial Catalog=Persona;Integrated Security=True")]
-        //public string PersonaConnectionString1 {
-        //    get {
+        //public string PersonaConnectionString1
+        //{
+        //    get
+        //    {
         //        return ((string)(this["PersonaConnectionString1"]));
         //    }
         //}

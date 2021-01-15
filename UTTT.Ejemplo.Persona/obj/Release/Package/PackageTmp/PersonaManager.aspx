@@ -14,26 +14,10 @@
     }
 
 </script>
+
 <script>
  
-    //Funcion que validara si se ingreso un numero menor que 18
-
-    //functionvalidar() {
-
-    //    var x = new Date();
-    //    var fecha = date.split("/");
-    //    x.setFullYear(fecha[2], fecha[1] - 1, fecha[0]);
-    //    var today = new Date();
-
-    //    if (x >= today)
-    //        return false;
-    //    else
-    //        return true;
-    //}
-
-    ////Agregamos un escuchador de el evento click al boton
-
-    //boton.addEventListener("click", validar)	
+   	
 
     function validateYear(date) {
         if (date) {
@@ -100,7 +84,7 @@
             <asp:TextBox ID="txtClaveUnica" runat="server"  Width="249px" type="number" MinLength="3"></asp:TextBox>
 
             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*El campo 
-                es obligatorio" ControlToValidate="txtClaveUnica" ForeColor="Red" ></asp:RequiredFieldValidator>
+                es obligatorio Solo números" ControlToValidate="txtClaveUnica" ForeColor="Red" ></asp:RequiredFieldValidator>
         
  
         
@@ -110,14 +94,19 @@
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         
             Nombre:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
-            <asp:TextBox  ID="txtNombre" runat="server" onkeypress="return isNumberKey(event);" MinLength="3" 
+            <asp:TextBox  ID="txtNombre" runat="server" onkeypress="return isNumberKey(event);" MaxLength="15" 
                 Width="249px" ></asp:TextBox>
 
            
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" 
+            runat="server" ErrorMessage=" Ingrese solo letras y sin espacios." 
+            ControlToValidate="txtNombre" ValidationExpression="^[a-zA-Z]*$" 
+            ValidationGroup="SOLOLETRAS"></asp:RegularExpressionValidator>
          
 
             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="*El campo 
                 es obligatorio" ControlToValidate="txtNombre" ForeColor="Red"></asp:RequiredFieldValidator>
+
 
          
 
@@ -127,12 +116,18 @@
         <div> 
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
             A Paterno:&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:TextBox ID="txtAPaterno" runat="server" onkeypress="return isNumberKey(event)" MinLength="3"
+            <asp:TextBox ID="txtAPaterno" runat="server" onkeypress="return isNumberKey(event)" MaxLength="15"
                 Width="249px"  ></asp:TextBox>
+
+             <asp:RegularExpressionValidator ID="RegularExpressionValidator2" 
+            runat="server" ErrorMessage="Ingrese solo letras y sin espacios." 
+            ControlToValidate="txtNombre" ValidationExpression="^[a-zA-Z]*$" 
+            ValidationGroup="SOLOLETRAS"></asp:RegularExpressionValidator>
+
             
             <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="*El campo  
                 es obligatorio" ControlToValidate="txtAPaterno" ForeColor="Red"></asp:RequiredFieldValidator>
-
+            
 
         </div>
         <div>
@@ -142,9 +137,7 @@
             A Materno:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
             <asp:TextBox ID="txtAMaterno" runat="server" Width="248px" onkeypress="return isNumberKey(event);" MinLength="3"
                 ></asp:TextBox>
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="*El campo
-                es obligatorio" ControlToValidate="txtAMaterno" ForeColor="Red" Type="Text"></asp:RequiredFieldValidator>
-                
+            
             
         </div>
 
@@ -152,7 +145,7 @@
     <div style="margin-left: 256px"> 
         <label for="lblFecha">Fecha de nacimiento:</label>
     <asp:TextBox runat="server"  name="txtFechaa" Id="txtFechaa" type='' class="form-control" 
-        onclick="validateYear(this.value)" onblur="validateYear(this.value)" style="margin-left: 18px" Width="253px" ></asp:TextBox>
+        onclick="validateYear(this.value)" onblur="validateYear(this.value)" style="margin-left: 18px" Width="253px" Visible="False" ></asp:TextBox>
 
         </div>
 
