@@ -94,39 +94,31 @@
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         
             Nombre:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
-            <asp:TextBox  ID="txtNombre" runat="server" onkeypress="return isNumberKey(event);" MaxLength="15" 
-                Width="249px" ></asp:TextBox>
-
-           
-            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" 
-            runat="server" ErrorMessage=" Ingrese solo letras y sin espacios." 
-            ControlToValidate="txtNombre" ValidationExpression="^[a-zA-Z]*$" 
-            ValidationGroup="SOLOLETRAS"></asp:RegularExpressionValidator>
-         
+            <asp:TextBox  ID="txtNombre" runat="server" onkeypress="return isNumberKey(event);" MinLength="3" 
+              MaxLength="15"  Width="249px " ></asp:TextBox>
 
             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="*El campo 
                 es obligatorio" ControlToValidate="txtNombre" ForeColor="Red"></asp:RequiredFieldValidator>
 
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" 
+            runat="server" ErrorMessage=" Ingrese solo letras y sin espacios." 
+            ControlToValidate="txtNombre" ValidationExpression="^[a-zA-Z]*$" 
+            ValidationGroup="SOLOLETRAS"></asp:RegularExpressionValidator>
 
-         
-
-           
-        
         </div>
         <div> 
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
             A Paterno:&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:TextBox ID="txtAPaterno" runat="server" onkeypress="return isNumberKey(event)" MaxLength="15"
+            <asp:TextBox ID="txtAPaterno" runat="server" onkeypress="return isNumberKey(event)" MinLength="3" MaxLength="15"
                 Width="249px"  ></asp:TextBox>
-
-             <asp:RegularExpressionValidator ID="RegularExpressionValidator2" 
-            runat="server" ErrorMessage="Ingrese solo letras y sin espacios." 
-            ControlToValidate="txtNombre" ValidationExpression="^[a-zA-Z]*$" 
-            ValidationGroup="SOLOLETRAS"></asp:RegularExpressionValidator>
-
             
             <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="*El campo  
                 es obligatorio" ControlToValidate="txtAPaterno" ForeColor="Red"></asp:RequiredFieldValidator>
+
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator2" 
+            runat="server" ErrorMessage="Ingrese solo letras y sin espacios." 
+            ControlToValidate="txtNombre" ValidationExpression="^[a-zA-Z]*$" 
+            ValidationGroup="SOLOLETRAS"></asp:RegularExpressionValidator>
             
 
         </div>
@@ -135,7 +127,7 @@
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         
             A Materno:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-            <asp:TextBox ID="txtAMaterno" runat="server" Width="248px" onkeypress="return isNumberKey(event);" MinLength="3"
+            <asp:TextBox ID="txtAMaterno" runat="server" Width="248px" onkeypress="return isNumberKey(event);" MinLength="3"  MaxLength="15"
                 ></asp:TextBox>
             
             
@@ -149,9 +141,10 @@
 
         </div>
 
-    
        
-        <asp:Calendar ID="dteCalendar" runat="server"  OnSelectionChanged="dteCalendar_SelectionChanged" onkeypress="return ValidarFechas(event);" BackColor="White" BorderColor="#3366CC" BorderWidth="1px" CellPadding="1" DayNameFormat="Shortest" Font-Names="Verdana" Font-Size="8pt" ForeColor="#003399" Height="200px" Width="220px" style="margin-left: 430px" >
+        <asp:Calendar ID="dteCalendar" runat="server"  OnSelectionChanged="dteCalendar_SelectionChanged" onkeypress="return ValidarFechas(event);"
+            BackColor="White" BorderColor="#3366CC" BorderWidth="1px" CellPadding="1" DayNameFormat="Shortest" Font-Names="Verdana" Font-Size="8pt"
+            ForeColor="#003399" Height="200px" Width="220px" style="margin-left: 430px" >
             <DayHeaderStyle BackColor="#99CCCC" ForeColor="#336666" Height="1px" />
             <NextPrevStyle Font-Size="8pt" ForeColor="#CCCCFF" />
             <OtherMonthDayStyle ForeColor="#999999" />
@@ -162,11 +155,7 @@
             <WeekendDayStyle BackColor="#CCCCFF" />
             
         </asp:Calendar>
-        
-    
-   
-
-        
+                
 
 <div class='input-group date' id='datetimepicker1'>
     <span class="input-group-addon">
