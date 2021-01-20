@@ -88,6 +88,11 @@ namespace UTTT.Ejemplo.Persona
                             this.dteCalendar.TodaysDate = (DateTime)fechaNacimiento;
                             this.dteCalendar.SelectedDate = (DateTime)fechaNacimiento;
                         }
+                        this.txtCorreoElectronico.Text = this.baseEntity.strCorreoElectronico;
+                        this.txtCodigoPostal.Text = this.baseEntity.intCodigoPostal.ToString();
+                        this.txtRfc.Text = this.baseEntity.strRcf;
+
+
                         this.setItem(ref this.ddlSexo, baseEntity.CatSexo.strValor);
                     }                
                 }
@@ -116,6 +121,9 @@ namespace UTTT.Ejemplo.Persona
                     persona.idCatSexo = int.Parse(this.ddlSexo.Text);
                     DateTime fechaNacimiento = this.dteCalendar.SelectedDate.Date;
                     persona.dteFechaNacimiento = fechaNacimiento;
+                    persona.strCorreoElectronico = this.txtCorreoElectronico.Text.Trim();
+                    persona.intCodigoPostal = int.Parse(this.txtCodigoPostal.Text);
+                    persona.strRcf = this.txtRfc.Text.Trim();
                     dcGuardar.GetTable<UTTT.Ejemplo.Linq.Data.Entity.Persona>().InsertOnSubmit(persona);
                     dcGuardar.SubmitChanges();
                     this.showMessage("El registro se agrego correctamente.");

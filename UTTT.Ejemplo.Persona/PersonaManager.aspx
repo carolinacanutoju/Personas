@@ -164,7 +164,46 @@
     </span> 
 </div>
         
+<div>
+       <p style="margin-left: 280px">
+ <label for="lblCorreoElectronico">Correo electronico:</label>
+       <asp:TextBox ID="txtCorreoElectronico" runat="server" style="margin-left: 6px" MinLength="3" MaxLength="30" Width="246px"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="*El campo  es obligatorio" ControlToValidate="txtCorreoElectronico" ForeColor="Red" ></asp:RequiredFieldValidator>
+                        
 
+           <asp:RegularExpressionValidator ID="RegularExpressionValidator6" runat="server" ControlToValidate="txtCorreoElectronico" ErrorMessage="Correo electrónico Inválido" ValidationExpression="^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$"></asp:RegularExpressionValidator>
+
+       </p>
+        
+
+   </div>
+        <div style="margin-left: 280px">
+
+            <asp:Label ID="lblCodigopostal" runat="server" Text="Codigo postal:"></asp:Label>
+
+            <asp:TextBox ID="txtCodigoPostal" runat="server" style="margin-left: 42px" MinLength="3" MaxLength="20" type="number" Width="243px"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="*El campo  es obligatorio" ControlToValidate="txtCodigoPostal" ForeColor="Red" ></asp:RequiredFieldValidator>
+          
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator7" runat="server" ControlToValidate="txtCodigoPostal" ErrorMessage="Ingresa un código postal válido" ValidationExpression="^\d{4,5}$"></asp:RegularExpressionValidator>
+             
+            <br />
+            <br />
+             
+            <br />
+
+        </div>
+        <div style="margin-left: 280px">
+
+            <asp:Label ID="lblRfc" runat="server" Text="Rfc:"></asp:Label>
+
+            <asp:TextBox ID="txtRfc" runat="server" style="margin-left: 106px" MinLength="3" MaxLength="20" Width="241px" ></asp:TextBox>
+             <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage="*El campo es obligatorio" ControlToValidate="txtRfc" ForeColor="Red" ></asp:RequiredFieldValidator>
+           
+
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator8" runat="server" ControlToValidate="txtRfc" ErrorMessage="Ingresa un Rfc válido" ValidationExpression="[A-Z,Ñ,&amp;]{3,4}[0-9]{2}[0-1][0-9][0-3][0-9][A-Z,0-9]?[A-Z,0-9]?[0-9,A-Z]?"></asp:RegularExpressionValidator>
+           
+
+        </div>
     
    
     
