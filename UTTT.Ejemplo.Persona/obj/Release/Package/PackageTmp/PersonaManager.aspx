@@ -15,20 +15,21 @@
 
 </script>
 
-<script>
- 
-   	
-
-    function validateYear(date) {
+<script language="javascript">
+     function validateYear(date) {
         if (date) {
             var date = new Date(date);
             if (date.getFullYear() > 2003)
-                ErrorMessage = "*Para Mayores de edad";
                 alert("Fecha Invalida +18 Años");
         }
     }
 </script>
 
+<script>
+    function VerificarCantidad(sender, args) {
+        args.IsValid = (args.Value.length >= 3);
+    }  
+</script>
     
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -36,12 +37,7 @@
     <title></title>
 </head>
 <body>
-  <%--  Parte del fech--%>
-
-<%--    <form id="form">
-		<input id="edad"type="number"min="18"max="100"placeholder="Edad" />
-		<button id="boton">Enviar</button>
-	</form>--%>
+ 
 
 
 
@@ -71,6 +67,8 @@
                 onselectedindexchanged="ddlSexo_SelectedIndexChanged" required="">
             </asp:DropDownList>
 
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="ddlSexo" ErrorMessage="Selecione el sexo" InitialValue="-1">
+            </asp:RequiredFieldValidator>
            
 
     </div>
@@ -86,7 +84,7 @@
             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*El campo 
                 es obligatorio Solo números" ControlToValidate="txtClaveUnica" ForeColor="Red" ></asp:RequiredFieldValidator>
         
- 
+           <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="txtClaveUnica" ErrorMessage="La clave unica es del 1 al 1000" MaximumValue="1000" MinimumValue="1" Type="Integer"></asp:RangeValidator>
         
         </div>
         <div>
@@ -129,6 +127,17 @@
             A Materno:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
             <asp:TextBox ID="txtAMaterno" runat="server" Width="248px" onkeypress="return isNumberKey(event);" MinLength="3"  MaxLength="15"
                 ></asp:TextBox>
+             <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="*El campo 
+                es obligatorio" ControlToValidate="txtAPaterno" ForeColor="Red"></asp:RequiredFieldValidator>
+
+
+            <asp:CustomValidator ID="CustomValidator2" runat="server" ClientValidationFunction="VerificarCantidad" ControlToValidate="txtAMaterno" ErrorMessage="Debe de tener mas de 3 caracteres" ValidationGroup="Erroes"></asp:CustomValidator>
+
+
+             <asp:RegularExpressionValidator ID="RegularExpressionValidator3" 
+            runat="server" ErrorMessage="Debe ingresar solo letras borre los espacios porfavor." 
+            ControlToValidate="txtAMaterno" ValidationExpression="^[a-zA-Z]*$" 
+            ValidationGroup="SOLOLETRAS"></asp:RegularExpressionValidator>
             
             
         </div>
@@ -136,9 +145,7 @@
         
     <div style="margin-left: 256px"> 
         <label for="lblFecha">Fecha de nacimiento:</label>
-    <asp:TextBox runat="server"  name="txtFechaa" Id="txtFechaa" type='' class="form-control" 
-        onclick="validateYear(this.value)" onblur="validateYear(this.value)" style="margin-left: 18px" Width="253px" Visible="False" ></asp:TextBox>
-
+    
         </div>
 
 
@@ -181,10 +188,10 @@
 
             <asp:Label ID="lblCodigopostal" runat="server" Text="Codigo postal:"></asp:Label>
 
-            <asp:TextBox ID="txtCodigoPostal" runat="server" style="margin-left: 42px" MinLength="3" MaxLength="20" type="number" Width="243px"></asp:TextBox>
+            <asp:TextBox ID="txtCodigoPostal" runat="server" style="margin-left: 42px" MinLength="3" MaxLength="20" type="text" Width="243px"></asp:TextBox>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="*El campo  es obligatorio" ControlToValidate="txtCodigoPostal" ForeColor="Red" ></asp:RequiredFieldValidator>
           
-            <asp:RegularExpressionValidator ID="RegularExpressionValidator7" runat="server" ControlToValidate="txtCodigoPostal" ErrorMessage="Ingresa un código postal válido" ValidationExpression="^\d{4,5}$"></asp:RegularExpressionValidator>
+          
              
             <br />
             <br />
@@ -205,14 +212,20 @@
 
         </div>
     
-   
+        <div>
+           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Label ID="lblMensaje" runat="server" BorderColor="Red" Visible="False"></asp:Label>
+        </div>
     
     <div>
      
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
      
         <asp:Button ID="btnAceptar" runat="server" Text="Aceptar" 
-            onclick="btnAceptar_Click" ViewStateMode="Disabled" onblur="validateYear(this.value)" />
+            onclick="btnAceptar_Click" ViewStateMode="Disabled" />
 
 
         &nbsp;&nbsp;&nbsp;

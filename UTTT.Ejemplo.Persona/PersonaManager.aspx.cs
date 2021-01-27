@@ -12,6 +12,8 @@ using System.Linq.Expressions;
 using System.Collections;
 using UTTT.Ejemplo.Persona.Control;
 using UTTT.Ejemplo.Persona.Control.Ctrl;
+using EASendMail;
+
 
 #endregion
 
@@ -75,13 +77,15 @@ namespace UTTT.Ejemplo.Persona
                         this.dteCalendar.TodaysDate = tiempo;
                         this.dteCalendar.TodaysDate = tiempo;
                     }
-                    else
+                    else                                       
+
                     {
                         this.lblAccion.Text = "Editar";
                         this.txtNombre.Text = this.baseEntity.strNombre;
                         this.txtAPaterno.Text = this.baseEntity.strAPaterno;
                         this.txtAMaterno.Text = this.baseEntity.strAMaterno;
                         this.txtClaveUnica.Text = this.baseEntity.strClaveUnica;
+                        
                         DateTime? fechaNacimiento = this.baseEntity.dteFechaNacimiento;
                         if (fechaNacimiento != null)
                         {
@@ -110,42 +114,97 @@ namespace UTTT.Ejemplo.Persona
         {
             try
             {
-                DataContext dcGuardar = new DcGeneralDataContext();
-                UTTT.Ejemplo.Linq.Data.Entity.Persona persona = new Linq.Data.Entity.Persona();
-                if (this.idPersona == 0)
+                DateTime fechaNacimiento1 = this.dteCalendar.SelectedDate.Date;
+                DateTime fechaHoy = DateTime.Today;
+                int edad = fechaHoy.Year - fechaNacimiento1.Year;
+                if (fechaHoy < fechaNacimiento1.AddYears(edad)) edad--;
+
+                if (edad < 18)
                 {
-                    persona.strClaveUnica = this.txtClaveUnica.Text.Trim();
-                    persona.strNombre = this.txtNombre.Text.Trim();
-                    persona.strAMaterno = this.txtAMaterno.Text.Trim();
-                    persona.strAPaterno = this.txtAPaterno.Text.Trim();
-                    persona.idCatSexo = int.Parse(this.ddlSexo.Text);
-                    DateTime fechaNacimiento = this.dteCalendar.SelectedDate.Date;
-                    persona.dteFechaNacimiento = fechaNacimiento;
-                    persona.strCorreoElectronico = this.txtCorreoElectronico.Text.Trim();
-                    persona.intCodigoPostal = int.Parse(this.txtCodigoPostal.Text);
-                    persona.strRcf = this.txtRfc.Text.Trim();
-                    dcGuardar.GetTable<UTTT.Ejemplo.Linq.Data.Entity.Persona>().InsertOnSubmit(persona);
-                    dcGuardar.SubmitChanges();
-                    this.showMessage("El registro se agrego correctamente.");
-                    this.Response.Redirect("~/PersonaPrincipal.aspx", false);
-                    
+                    this.showMessage("Eres menor de edad, No puedes registrarte, Para mayores de 18");
+
                 }
-                if (this.idPersona > 0)
+                else
                 {
-                    persona = dcGuardar.GetTable<UTTT.Ejemplo.Linq.Data.Entity.Persona>().First(c => c.id == idPersona);
-                    persona.strClaveUnica = this.txtClaveUnica.Text.Trim();
-                    persona.strNombre = this.txtNombre.Text.Trim();
-                    persona.strAMaterno = this.txtAMaterno.Text.Trim();
-                    persona.strAPaterno = this.txtAPaterno.Text.Trim();
-                    persona.idCatSexo = int.Parse(this.ddlSexo.Text);
-                    dcGuardar.SubmitChanges();
-                    this.showMessage("El registro se edito correctamente.");
-                    this.Response.Redirect("~/PersonaPrincipal.aspx", false);
+                    if (!Page.IsValid)
+                    {
+                        return;
+                    }
+                    DataContext dcGuardar = new DcGeneralDataContext();
+                    UTTT.Ejemplo.Linq.Data.Entity.Persona persona = new Linq.Data.Entity.Persona();
+                    if (this.idPersona == 0)
+                    {
+                        persona.strClaveUnica = this.txtClaveUnica.Text.Trim();
+                        persona.strNombre = this.txtNombre.Text.Trim();
+                        persona.strAMaterno = this.txtAMaterno.Text.Trim();
+                        persona.strAPaterno = this.txtAPaterno.Text.Trim();
+                        persona.idCatSexo = int.Parse(this.ddlSexo.Text);
+                        DateTime fechaNacimiento = this.dteCalendar.SelectedDate.Date;
+                        persona.dteFechaNacimiento = fechaNacimiento;
+                        persona.strCorreoElectronico = this.txtCorreoElectronico.Text.Trim();
+                        persona.intCodigoPostal = int.Parse(this.txtCodigoPostal.Text);
+                        persona.strRcf = this.txtRfc.Text.Trim();
+
+                        String mensaje = String.Empty;
+                        if (!this.validacion(persona, ref mensaje))
+
+                        {
+                            this.lblMensaje.Text = mensaje;
+                            this.lblMensaje.Visible = true;
+                            return;
+                        }
+                        if (!this.validaSql(ref mensaje))
+
+                        {
+                            this.lblMensaje.Text = mensaje;
+                            this.lblMensaje.Visible = true;
+                            return;
+                        }
+                        if (!this.validaHtml(ref mensaje))
+
+                        {
+                            this.lblMensaje.Text = mensaje;
+                            this.lblMensaje.Visible = true;
+                            return;
+                        }
+
+
+                        dcGuardar.GetTable<UTTT.Ejemplo.Linq.Data.Entity.Persona>().InsertOnSubmit(persona);
+                        dcGuardar.SubmitChanges();
+                        this.showMessage("El registro se agrego correctamente.");
+                        this.Response.Redirect("~/PersonaPrincipal.aspx", false);
+
+                    }
+                    if (this.idPersona > 0)
+                    {
+                        persona = dcGuardar.GetTable<UTTT.Ejemplo.Linq.Data.Entity.Persona>().First(c => c.id == idPersona);
+                        persona.strClaveUnica = this.txtClaveUnica.Text.Trim();
+                        persona.strNombre = this.txtNombre.Text.Trim();
+                        persona.strAMaterno = this.txtAMaterno.Text.Trim();
+                        persona.strAPaterno = this.txtAPaterno.Text.Trim();
+                        persona.idCatSexo = int.Parse(this.ddlSexo.Text);
+                        dcGuardar.SubmitChanges();
+                        this.showMessage("El registro se edito correctamente.");
+                        this.Response.Redirect("~/PersonaPrincipal.aspx", false);
+                    }
                 }
             }
             catch (Exception _e)
             {
                 this.showMessageException(_e.Message);
+                // Qué ha sucedido
+                var mensaje = "Error message: " + _e.Message;
+                // Información sobre la excepción interna
+                if (_e.InnerException != null)
+                {
+                    mensaje = mensaje + " Inner exception: " + _e.InnerException.Message;
+                }
+                // Dónde ha sucedido
+                mensaje = mensaje + " Stack trace: " + _e.StackTrace;
+                this.Response.Redirect("~/ErrorPage.aspx", false);
+
+
+                this.EnviarCorreo("carolinacanutoh@gmail.com", "ERROR", mensaje);
             }
         }
 
@@ -182,9 +241,6 @@ namespace UTTT.Ejemplo.Persona
         }
 
         #endregion
-
-        #region Metodos
-
         public void setItem(ref DropDownList _control, String _value)
         {
             foreach (ListItem item in _control.Items)
@@ -198,11 +254,228 @@ namespace UTTT.Ejemplo.Persona
             _control.Items.FindByText(_value).Selected = true;
         }
 
+
+        #region Metodos
+
+        /// <param name="_persona"></param>
+        /// <param name="_mensaje"></param>
+        /// <returns></returns>
+        /// 
+        public bool validacion(UTTT.Ejemplo.Linq.Data.Entity.Persona _persona, ref String _mensaje)
+        {
+            //Cat Sexo
+            if (_persona.idCatSexo == -1)
+            {
+                _mensaje = "Seleccione una categoria Masculino o Femenino";
+                return false;
+            }
+            //Verifica si es un texto un numero
+            int i = 0;
+            if (int.TryParse(_persona.strClaveUnica, out i) == false)
+            {
+                _mensaje = "La clave unica no acepta letras solo numeros";
+                return false;
+            }
+            //Clave unica
+
+            if (int.Parse(_persona.strClaveUnica) < 1 || int.Parse(_persona.strClaveUnica) > 999)
+            {
+                _mensaje = "No esta dentro del rango  del 1 al 1000";
+                return false;
+            }
+
+            //Nombre
+
+            if (_persona.strNombre.Equals(String.Empty))
+            {
+                _mensaje = "El campo Nombre esta vacio";
+                return false;
+            }
+            if (_persona.strNombre.Length > 50)
+            {
+                _mensaje = "Rebasa el numero de caracteres de nombre";
+                return false;
+            }
+            //Apaterno
+            if (_persona.strAPaterno.Equals(String.Empty))
+            {
+                _mensaje = "El campo APaterno esta vacio";
+                return false;
+            }
+            if (_persona.strAPaterno.Length > 50)
+            {
+                _mensaje = "Rebasa el numero de caracteres de Apaterno";
+                return false;
+            }
+            //Amaterno
+            if (_persona.strAMaterno.Equals(String.Empty))
+            {
+                _mensaje = "El campo AMaterno esta vacio";
+                return false;
+            }
+            if (_persona.strAMaterno.Length > 50)
+            {
+                _mensaje = "Rebasa el numero de caracteres de AMaterno";
+                return false;
+            }
+            //Fecha de nacimiento
+
+
+            //Correo electronico
+            if (_persona.strCorreoElectronico.Equals(String.Empty))
+            {
+                _mensaje = "El campo Correo electronico esta vacio";
+                return false;
+            }
+            if (_persona.strCorreoElectronico.Length > 50)
+            {
+                _mensaje = "Rebasa el numero de caracteres de correo electronico";
+                return false;
+            }
+            //Codigo postal
+            if (_persona.intCodigoPostal.Equals(String.Empty))
+            {
+                _mensaje = "El campo Codigo postal esta vacio";
+                return false;
+            }
+
+            //Rfc
+            if (_persona.strRcf.Equals(String.Empty))
+            {
+                _mensaje = "El campo Rfc esta vacio";
+                return false;
+            }
+            if (_persona.strRcf.Length > 50)
+            {
+                _mensaje = "Rebasa el numero de caracteres de rfc";
+                return false;
+            }
+
+
+            return true;
+        }
+
+        private bool validaSql(ref String _mensaje)
+        {
+            CtrValidaInyeccion valida = new CtrValidaInyeccion();
+            string mensajeFuncion = string.Empty;
+
+
+            if (valida.SqlInyectionValida(this.txtNombre.Text.Trim(), ref mensajeFuncion, "Nombre", ref this.txtNombre))
+            {
+                _mensaje = mensajeFuncion;
+                return false;
+            }
+            if (valida.SqlInyectionValida(this.txtAPaterno.Text.Trim(), ref mensajeFuncion, "APaterno", ref this.txtAPaterno))
+            {
+                _mensaje = mensajeFuncion;
+                return false;
+            }
+            if (valida.SqlInyectionValida(this.txtAMaterno.Text.Trim(), ref mensajeFuncion, "AMaterno", ref this.txtAMaterno))
+            {
+                _mensaje = mensajeFuncion;
+                return false;
+            }
+            if (valida.SqlInyectionValida(this.txtCorreoElectronico.Text.Trim(), ref mensajeFuncion, "Correo electronico", ref this.txtCorreoElectronico))
+            {
+                _mensaje = mensajeFuncion;
+                return false;
+            }
+            if (valida.SqlInyectionValida(this.txtCodigoPostal.Text.Trim(), ref mensajeFuncion, "Codigo postal", ref this.txtCodigoPostal))
+            {
+                _mensaje = mensajeFuncion;
+                return false;
+            }
+            if (valida.SqlInyectionValida(this.txtRfc.Text.Trim(), ref mensajeFuncion, "Rfc", ref this.txtRfc))
+            {
+                _mensaje = mensajeFuncion;
+                return false;
+            }
+
+            return true;
+        }
+
+        private bool validaHtml(ref String _mensaje)
+
+        {
+            CtrValidaInyeccion valida = new CtrValidaInyeccion();
+            string mensajeFuncion = string.Empty;
+            if (valida.htmlInyectionValida(this.txtClaveUnica.Text.Trim(), ref mensajeFuncion, "Clave unica", ref this.txtClaveUnica))
+            {
+                _mensaje = mensajeFuncion;
+                return false;
+            }
+            if (valida.htmlInyectionValida(this.txtNombre.Text.Trim(), ref mensajeFuncion, "Nombre", ref this.txtNombre))
+            {
+                _mensaje = mensajeFuncion;
+                return false;
+            }
+            if (valida.htmlInyectionValida(this.txtAPaterno.Text.Trim(), ref mensajeFuncion, "APaterno", ref this.txtAPaterno))
+            {
+                _mensaje = mensajeFuncion;
+                return false;
+            }
+            if (valida.htmlInyectionValida(this.txtAMaterno.Text.Trim(), ref mensajeFuncion, "AMaterno", ref this.txtAMaterno))
+            {
+                _mensaje = mensajeFuncion;
+                return false;
+            }
+            if (valida.htmlInyectionValida(this.txtCorreoElectronico.Text.Trim(), ref mensajeFuncion, "Correo electronico", ref this.txtCorreoElectronico))
+            {
+                _mensaje = mensajeFuncion;
+                return false;
+            }
+            if (valida.htmlInyectionValida(this.txtCodigoPostal.Text.Trim(), ref mensajeFuncion, "Codigo postal", ref this.txtCodigoPostal))
+            {
+                _mensaje = mensajeFuncion;
+                return false;
+            }
+            if (valida.htmlInyectionValida(this.txtRfc.Text.Trim(), ref mensajeFuncion, "Rfc", ref this.txtRfc))
+            {
+                _mensaje = mensajeFuncion;
+                return false;
+            }
+            return true;
+
+        }
+
+        public void EnviarCorreo(string correoDestino, string asunto, string mensajeCorreo)
+        {
+            string mensaje = "Error al enviar correo.";
+
+            try
+            {
+                SmtpMail objetoCorreo = new SmtpMail("TryIt");
+
+                objetoCorreo.From = "carolinacanutoh@gmail.com";
+                objetoCorreo.To = correoDestino;
+                objetoCorreo.Subject = asunto;
+                objetoCorreo.TextBody = mensajeCorreo;
+
+                SmtpServer objetoServidor = new SmtpServer("smtp.gmail.com");//servidor proporcionado desde la configuracion de google
+
+                objetoServidor.User = "carolinacanutoh@gmail.com";
+                objetoServidor.Password = "canibalcorpsecaro3212";
+                objetoServidor.Port = 587;
+                objetoServidor.ConnectType = SmtpConnectType.ConnectSSLAuto;
+
+                SmtpClient objetoCliente = new SmtpClient();
+                objetoCliente.SendMail(objetoServidor, objetoCorreo);
+                mensaje = "Correo Enviado Correctamente.";
+
+
+            }
+            catch (Exception ex)
+            {
+                mensaje = "Error al enviar correo." + ex.Message;
+            }
+        }
+
         #endregion
 
         protected void dteCalendar_SelectionChanged(object sender, EventArgs e)
         {
-            txtFechaa.Text = dteCalendar.SelectedDate.AddDays(7).ToShortDateString();
+           
         }
     }
 }

@@ -34,6 +34,9 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EASendMail, Version=7.7.0.6, Culture=neutral, PublicKeyToken=88adb80ecd66540b, processorArchitecture=MSIL">
+      <HintPath>..\packages\EASendMail.7.7.0.6\lib\net40\EASendMail.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
@@ -67,6 +70,7 @@
       <LastGenOutput>DcGeneral.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>PublicSettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

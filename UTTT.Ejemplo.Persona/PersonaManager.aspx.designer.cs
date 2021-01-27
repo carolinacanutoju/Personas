@@ -42,6 +42,15 @@ namespace UTTT.Ejemplo.Persona
         protected global::System.Web.UI.WebControls.DropDownList ddlSexo;
 
         /// <summary>
+        /// Control RequiredFieldValidator8.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator8;
+
+        /// <summary>
         /// Control txtClaveUnica.
         /// </summary>
         /// <remarks>
@@ -58,6 +67,15 @@ namespace UTTT.Ejemplo.Persona
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+
+        /// <summary>
+        /// Control RangeValidator1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RangeValidator RangeValidator1;
 
         /// <summary>
         /// Control txtNombre.
@@ -123,13 +141,31 @@ namespace UTTT.Ejemplo.Persona
         protected global::System.Web.UI.WebControls.TextBox txtAMaterno;
 
         /// <summary>
-        /// Control txtFechaa.
+        /// Control RequiredFieldValidator4.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFechaa;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator4;
+
+        /// <summary>
+        /// Control CustomValidator2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator CustomValidator2;
+
+        /// <summary>
+        /// Control RegularExpressionValidator3.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator3;
 
         /// <summary>
         /// Control dteCalendar.
@@ -195,15 +231,6 @@ namespace UTTT.Ejemplo.Persona
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator6;
 
         /// <summary>
-        /// Control RegularExpressionValidator7.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator7;
-
-        /// <summary>
         /// Control lblRfc.
         /// </summary>
         /// <remarks>
@@ -238,6 +265,15 @@ namespace UTTT.Ejemplo.Persona
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator8;
+
+        /// <summary>
+        /// Control lblMensaje.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMensaje;
 
         /// <summary>
         /// Control btnAceptar.

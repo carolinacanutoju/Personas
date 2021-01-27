@@ -48,6 +48,9 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EASendMail, Version=7.7.0.6, Culture=neutral, PublicKeyToken=88adb80ecd66540b, processorArchitecture=MSIL">
+      <HintPath>..\packages\EASendMail.7.7.0.6\lib\net461\EASendMail.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -93,6 +96,9 @@
       <Project>{10213A66-AFF1-433D-BC09-B5C76B3A339A}</Project>
       <Name>UTTT.Ejemplo.Persona.Data</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

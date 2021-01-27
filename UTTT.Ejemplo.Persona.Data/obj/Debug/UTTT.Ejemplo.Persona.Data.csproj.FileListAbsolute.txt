@@ -15,3 +15,11 @@ C:\Users\User\Desktop\UTTT\Manuales\Manual\UTTT.Ejemplo.Persona\UTTT.Ejemplo.Per
 C:\Users\User\Desktop\UTTT\Manuales\Manual\UTTT.Ejemplo.Persona\UTTT.Ejemplo.Persona.Data\obj\Debug\UTTT.Ejemplo.Persona.Data.csproj.CoreCompileInputs.cache
 C:\Users\User\Desktop\UTTT\Manuales\Manual\UTTT.Ejemplo.Persona\UTTT.Ejemplo.Persona.Data\obj\Debug\UTTT.Ejemplo.Persona.Data.dll
 C:\Users\User\Desktop\UTTT\Manuales\Manual\UTTT.Ejemplo.Persona\UTTT.Ejemplo.Persona.Data\obj\Debug\UTTT.Ejemplo.Persona.Data.pdb
+C:\Users\carol\Desktop\Desarrollo Web\Manuales\Manual\UTTT.Ejemplo.Persona\UTTT.Ejemplo.Persona.Data\bin\Debug\UTTT.Ejemplo.Persona.Data.dll
+C:\Users\carol\Desktop\Desarrollo Web\Manuales\Manual\UTTT.Ejemplo.Persona\UTTT.Ejemplo.Persona.Data\bin\Debug\UTTT.Ejemplo.Persona.Data.pdb
+C:\Users\carol\Desktop\Desarrollo Web\Manuales\Manual\UTTT.Ejemplo.Persona\UTTT.Ejemplo.Persona.Data\bin\Debug\EASendMail.dll
+C:\Users\carol\Desktop\Desarrollo Web\Manuales\Manual\UTTT.Ejemplo.Persona\UTTT.Ejemplo.Persona.Data\obj\Debug\UTTT.Ejemplo.Persona.Data.csprojAssemblyReference.cache
+C:\Users\carol\Desktop\Desarrollo Web\Manuales\Manual\UTTT.Ejemplo.Persona\UTTT.Ejemplo.Persona.Data\obj\Debug\UTTT.Ejemplo.Persona.Data.csproj.CoreCompileInputs.cache
+C:\Users\carol\Desktop\Desarrollo Web\Manuales\Manual\UTTT.Ejemplo.Persona\UTTT.Ejemplo.Persona.Data\obj\Debug\UTTT.Ejemplo.Persona.Data.csproj.CopyComplete
+C:\Users\carol\Desktop\Desarrollo Web\Manuales\Manual\UTTT.Ejemplo.Persona\UTTT.Ejemplo.Persona.Data\obj\Debug\UTTT.Ejemplo.Persona.Data.dll
+C:\Users\carol\Desktop\Desarrollo Web\Manuales\Manual\UTTT.Ejemplo.Persona\UTTT.Ejemplo.Persona.Data\obj\Debug\UTTT.Ejemplo.Persona.Data.pdb

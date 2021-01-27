@@ -34,6 +34,9 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EASendMail, Version=7.7.0.6, Culture=neutral, PublicKeyToken=88adb80ecd66540b, processorArchitecture=MSIL">
+      <HintPath>..\packages\EASendMail.7.7.0.6\lib\net40\EASendMail.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
@@ -53,9 +56,13 @@
     <Compile Include="Ctrl\CtrlMessage.cs" />
     <Compile Include="Ctrl\CtrlPersona.cs" />
     <Compile Include="Ctrl\CtrlSexo.cs" />
+    <Compile Include="CtrValidaInyeccion.cs" />
     <Compile Include="Interface\IOperacion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SessionManager.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
