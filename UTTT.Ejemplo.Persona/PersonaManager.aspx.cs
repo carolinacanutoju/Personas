@@ -104,7 +104,7 @@ namespace UTTT.Ejemplo.Persona
             }
             catch (Exception _e)
             {
-                this.showMessage("Ha ocurrido un problema al cargar la página");
+                this.showMessage("Ha Ocurrido un Problema al Cargar la Página");
                 this.Response.Redirect("~/PersonaPrincipal.aspx", false);
             }
 
@@ -121,7 +121,7 @@ namespace UTTT.Ejemplo.Persona
 
                 if (edad < 18)
                 {
-                    this.showMessage("Eres menor de edad, No puedes registrarte, Para mayores de 18");
+                    this.showMessage("No puedes registrarte ya que eres menor de edad, <<Para Mayores de 18>>");
 
                 }
                 else
@@ -171,7 +171,7 @@ namespace UTTT.Ejemplo.Persona
 
                         dcGuardar.GetTable<UTTT.Ejemplo.Linq.Data.Entity.Persona>().InsertOnSubmit(persona);
                         dcGuardar.SubmitChanges();
-                        this.showMessage("El registro se agrego correctamente.");
+                        this.showMessage("El registro se Agrego con Exitó");
                         this.Response.Redirect("~/PersonaPrincipal.aspx", false);
 
                     }
@@ -184,7 +184,7 @@ namespace UTTT.Ejemplo.Persona
                         persona.strAPaterno = this.txtAPaterno.Text.Trim();
                         persona.idCatSexo = int.Parse(this.ddlSexo.Text);
                         dcGuardar.SubmitChanges();
-                        this.showMessage("El registro se edito correctamente.");
+                        this.showMessage("El registro se Edito con Exitó");
                         this.Response.Redirect("~/PersonaPrincipal.aspx", false);
                     }
                 }
@@ -216,7 +216,7 @@ namespace UTTT.Ejemplo.Persona
             }
             catch (Exception _e)
             {
-                this.showMessage("Ha ocurrido un error inesperado");
+                this.showMessage("Ha ocurrido un Error Imprevisto");
             }
         }
 
@@ -236,7 +236,7 @@ namespace UTTT.Ejemplo.Persona
             }
             catch (Exception)
             {
-                this.showMessage("Ha ocurrido un error inesperado");
+                this.showMessage("Ha ocurrido un Error Imprevisto");
             }
         }
 
@@ -263,91 +263,91 @@ namespace UTTT.Ejemplo.Persona
         /// 
         public bool validacion(UTTT.Ejemplo.Linq.Data.Entity.Persona _persona, ref String _mensaje)
         {
-            //Cat Sexo
+            
             if (_persona.idCatSexo == -1)
             {
-                _mensaje = "Seleccione una categoria Masculino o Femenino";
+                _mensaje = "Seleccione Su Generó Masculino/Femenino";
                 return false;
             }
-            //Verifica si es un texto un numero
+           
             int i = 0;
             if (int.TryParse(_persona.strClaveUnica, out i) == false)
             {
-                _mensaje = "La clave unica no acepta letras solo numeros";
+                _mensaje = "Sólo Números";
                 return false;
             }
-            //Clave unica
+            
 
             if (int.Parse(_persona.strClaveUnica) < 1 || int.Parse(_persona.strClaveUnica) > 999)
             {
-                _mensaje = "No esta dentro del rango  del 1 al 1000";
+                _mensaje = "Se encuentra fuera del rango 1-1000";
                 return false;
             }
 
-            //Nombre
+
 
             if (_persona.strNombre.Equals(String.Empty))
             {
-                _mensaje = "El campo Nombre esta vacio";
+                _mensaje = "El Campo Nombre se Encuentra Vacío";
                 return false;
             }
             if (_persona.strNombre.Length > 50)
             {
-                _mensaje = "Rebasa el numero de caracteres de nombre";
+                _mensaje = "Exedió el Número de Carácteres Permitidos";
                 return false;
             }
-            //Apaterno
+
             if (_persona.strAPaterno.Equals(String.Empty))
             {
-                _mensaje = "El campo APaterno esta vacio";
+                _mensaje = "El Campo Apellido Paterno se Encuentra Vacío";
                 return false;
             }
             if (_persona.strAPaterno.Length > 50)
             {
-                _mensaje = "Rebasa el numero de caracteres de Apaterno";
+                _mensaje = "Exedió el Número de Carácteres Permitidos";
                 return false;
             }
-            //Amaterno
+            
             if (_persona.strAMaterno.Equals(String.Empty))
             {
-                _mensaje = "El campo AMaterno esta vacio";
+                _mensaje = "El Campo Apellido Materno se Encuentra Vacío";
                 return false;
             }
             if (_persona.strAMaterno.Length > 50)
             {
-                _mensaje = "Rebasa el numero de caracteres de AMaterno";
+                _mensaje = "Exedió el Número de Carácteres Permitidos";
                 return false;
             }
-            //Fecha de nacimiento
+           
 
 
-            //Correo electronico
+            
             if (_persona.strCorreoElectronico.Equals(String.Empty))
             {
-                _mensaje = "El campo Correo electronico esta vacio";
+                _mensaje = "El Campo Correo Eléctronico se Encuentra Vacío";
                 return false;
             }
             if (_persona.strCorreoElectronico.Length > 50)
             {
-                _mensaje = "Rebasa el numero de caracteres de correo electronico";
+                _mensaje = "Exedió el Número de Carácteres Permitidos";
                 return false;
             }
-            //Codigo postal
+            
             if (_persona.intCodigoPostal.Equals(String.Empty))
             {
-                _mensaje = "El campo Codigo postal esta vacio";
+                _mensaje = "El Campo Codigo Postal se Encuentra Vacío";
                 return false;
             }
 
-            //Rfc
+            
             if (_persona.strRcf.Equals(String.Empty))
             {
-                _mensaje = "El campo Rfc esta vacio";
+                _mensaje = "El Campo Rfc se Encuentra Vacío";
                 return false;
             }
             if (_persona.strRcf.Length > 50)
             {
-                _mensaje = "Rebasa el numero de caracteres de rfc";
+                _mensaje = "Exedió el Número de Carácteres Permitidos";
                 return false;
             }
 
@@ -366,22 +366,22 @@ namespace UTTT.Ejemplo.Persona
                 _mensaje = mensajeFuncion;
                 return false;
             }
-            if (valida.SqlInyectionValida(this.txtAPaterno.Text.Trim(), ref mensajeFuncion, "APaterno", ref this.txtAPaterno))
+            if (valida.SqlInyectionValida(this.txtAPaterno.Text.Trim(), ref mensajeFuncion, "Apellido Paterno", ref this.txtAPaterno))
             {
                 _mensaje = mensajeFuncion;
                 return false;
             }
-            if (valida.SqlInyectionValida(this.txtAMaterno.Text.Trim(), ref mensajeFuncion, "AMaterno", ref this.txtAMaterno))
+            if (valida.SqlInyectionValida(this.txtAMaterno.Text.Trim(), ref mensajeFuncion, "Apellido Materno", ref this.txtAMaterno))
             {
                 _mensaje = mensajeFuncion;
                 return false;
             }
-            if (valida.SqlInyectionValida(this.txtCorreoElectronico.Text.Trim(), ref mensajeFuncion, "Correo electronico", ref this.txtCorreoElectronico))
+            if (valida.SqlInyectionValida(this.txtCorreoElectronico.Text.Trim(), ref mensajeFuncion, "Correo Eléctronico", ref this.txtCorreoElectronico))
             {
                 _mensaje = mensajeFuncion;
                 return false;
             }
-            if (valida.SqlInyectionValida(this.txtCodigoPostal.Text.Trim(), ref mensajeFuncion, "Codigo postal", ref this.txtCodigoPostal))
+            if (valida.SqlInyectionValida(this.txtCodigoPostal.Text.Trim(), ref mensajeFuncion, "Codigo Postal", ref this.txtCodigoPostal))
             {
                 _mensaje = mensajeFuncion;
                 return false;
@@ -400,7 +400,7 @@ namespace UTTT.Ejemplo.Persona
         {
             CtrValidaInyeccion valida = new CtrValidaInyeccion();
             string mensajeFuncion = string.Empty;
-            if (valida.htmlInyectionValida(this.txtClaveUnica.Text.Trim(), ref mensajeFuncion, "Clave unica", ref this.txtClaveUnica))
+            if (valida.htmlInyectionValida(this.txtClaveUnica.Text.Trim(), ref mensajeFuncion, "Clave Única", ref this.txtClaveUnica))
             {
                 _mensaje = mensajeFuncion;
                 return false;
@@ -410,22 +410,22 @@ namespace UTTT.Ejemplo.Persona
                 _mensaje = mensajeFuncion;
                 return false;
             }
-            if (valida.htmlInyectionValida(this.txtAPaterno.Text.Trim(), ref mensajeFuncion, "APaterno", ref this.txtAPaterno))
+            if (valida.htmlInyectionValida(this.txtAPaterno.Text.Trim(), ref mensajeFuncion, "Apellido Paterno", ref this.txtAPaterno))
             {
                 _mensaje = mensajeFuncion;
                 return false;
             }
-            if (valida.htmlInyectionValida(this.txtAMaterno.Text.Trim(), ref mensajeFuncion, "AMaterno", ref this.txtAMaterno))
+            if (valida.htmlInyectionValida(this.txtAMaterno.Text.Trim(), ref mensajeFuncion, "Apellido Materno", ref this.txtAMaterno))
             {
                 _mensaje = mensajeFuncion;
                 return false;
             }
-            if (valida.htmlInyectionValida(this.txtCorreoElectronico.Text.Trim(), ref mensajeFuncion, "Correo electronico", ref this.txtCorreoElectronico))
+            if (valida.htmlInyectionValida(this.txtCorreoElectronico.Text.Trim(), ref mensajeFuncion, "Correo Eléctronico", ref this.txtCorreoElectronico))
             {
                 _mensaje = mensajeFuncion;
                 return false;
             }
-            if (valida.htmlInyectionValida(this.txtCodigoPostal.Text.Trim(), ref mensajeFuncion, "Codigo postal", ref this.txtCodigoPostal))
+            if (valida.htmlInyectionValida(this.txtCodigoPostal.Text.Trim(), ref mensajeFuncion, "Codigo Postal", ref this.txtCodigoPostal))
             {
                 _mensaje = mensajeFuncion;
                 return false;
@@ -441,7 +441,7 @@ namespace UTTT.Ejemplo.Persona
 
         public void EnviarCorreo(string correoDestino, string asunto, string mensajeCorreo)
         {
-            string mensaje = "Error al enviar correo.";
+            string mensaje = "Error al enviar el Correo Eléctronico";
 
             try
             {
@@ -452,7 +452,7 @@ namespace UTTT.Ejemplo.Persona
                 objetoCorreo.Subject = asunto;
                 objetoCorreo.TextBody = mensajeCorreo;
 
-                SmtpServer objetoServidor = new SmtpServer("smtp.gmail.com");//servidor proporcionado desde la configuracion de google
+                SmtpServer objetoServidor = new SmtpServer("smtp.gmail.com");
 
                 objetoServidor.User = "carolinacanutoh@gmail.com";
                 objetoServidor.Password = "canibalcorpsecaro3212";
@@ -461,13 +461,13 @@ namespace UTTT.Ejemplo.Persona
 
                 SmtpClient objetoCliente = new SmtpClient();
                 objetoCliente.SendMail(objetoServidor, objetoCorreo);
-                mensaje = "Correo Enviado Correctamente.";
+                mensaje = "Correo Eléctronico Enviado con Exitó";
 
 
             }
             catch (Exception ex)
             {
-                mensaje = "Error al enviar correo." + ex.Message;
+                mensaje = "Error al Enviar Correo Eléctronico." + ex.Message;
             }
         }
 

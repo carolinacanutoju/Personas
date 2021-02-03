@@ -40,3 +40,5 @@ C:\Users\carol\Desktop\Desarrollo Web\Manuales\Manual\UTTT.Ejemplo.Persona\UTTT.
 C:\Users\carol\Desktop\Desarrollo Web\Manuales\Manual\UTTT.Ejemplo.Persona\UTTT.Ejemplo.Persona\obj\Release\UTTT.Ejemplo.Persona.dll
 C:\Users\carol\Desktop\Desarrollo Web\Manuales\Manual\UTTT.Ejemplo.Persona\UTTT.Ejemplo.Persona\obj\Release\UTTT.Ejemplo.Persona.pdb
 C:\Users\carol\Desktop\Desarrollo Web\Manuales\Manual\UTTT.Ejemplo.Persona\UTTT.Ejemplo.Persona\bin\EASendMail.dll
+C:\Users\carol\Desktop\Desarrollo Web\Manuales\Manual\UTTT.Ejemplo.Persona\UTTT.Ejemplo.Persona\obj\Release\UTTT.Ejemplo.Persona.Properties.Resources.resources
+C:\Users\carol\Desktop\Desarrollo Web\Manuales\Manual\UTTT.Ejemplo.Persona\UTTT.Ejemplo.Persona\obj\Release\UTTT.Ejemplo.Persona.csproj.GenerateResource.cache
