@@ -16,6 +16,7 @@ C:\Users\User\Desktop\UTTT\Manuales\Manual\UTTT.Ejemplo.Persona\UTTT.Ejemplo.Per
 C:\Users\User\Desktop\UTTT\Manuales\Manual\UTTT.Ejemplo.Persona\UTTT.Ejemplo.Persona.Control\obj\Debug\UTTT.Ejemplo.Persona.Control.pdb
 C:\Users\carol\Desktop\Desarrollo Web\Manuales\Manual\UTTT.Ejemplo.Persona\UTTT.Ejemplo.Persona.Control\bin\Debug\UTTT.Ejemplo.Persona.Control.dll
 C:\Users\carol\Desktop\Desarrollo Web\Manuales\Manual\UTTT.Ejemplo.Persona\UTTT.Ejemplo.Persona.Control\bin\Debug\UTTT.Ejemplo.Persona.Control.pdb
+C:\Users\carol\Desktop\Desarrollo Web\Manuales\Manual\UTTT.Ejemplo.Persona\UTTT.Ejemplo.Persona.Control\bin\Debug\EASendMail.dll
 C:\Users\carol\Desktop\Desarrollo Web\Manuales\Manual\UTTT.Ejemplo.Persona\UTTT.Ejemplo.Persona.Control\bin\Debug\UTTT.Ejemplo.Persona.Data.dll
 C:\Users\carol\Desktop\Desarrollo Web\Manuales\Manual\UTTT.Ejemplo.Persona\UTTT.Ejemplo.Persona.Control\bin\Debug\UTTT.Ejemplo.Persona.Data.pdb
 C:\Users\carol\Desktop\Desarrollo Web\Manuales\Manual\UTTT.Ejemplo.Persona\UTTT.Ejemplo.Persona.Control\obj\Debug\UTTT.Ejemplo.Persona.Control.csprojAssemblyReference.cache
@@ -23,4 +24,3 @@ C:\Users\carol\Desktop\Desarrollo Web\Manuales\Manual\UTTT.Ejemplo.Persona\UTTT.
 C:\Users\carol\Desktop\Desarrollo Web\Manuales\Manual\UTTT.Ejemplo.Persona\UTTT.Ejemplo.Persona.Control\obj\Debug\UTTT.Ejemplo.Persona.Control.csproj.CopyComplete
 C:\Users\carol\Desktop\Desarrollo Web\Manuales\Manual\UTTT.Ejemplo.Persona\UTTT.Ejemplo.Persona.Control\obj\Debug\UTTT.Ejemplo.Persona.Control.dll
 C:\Users\carol\Desktop\Desarrollo Web\Manuales\Manual\UTTT.Ejemplo.Persona\UTTT.Ejemplo.Persona.Control\obj\Debug\UTTT.Ejemplo.Persona.Control.pdb
-C:\Users\carol\Desktop\Desarrollo Web\Manuales\Manual\UTTT.Ejemplo.Persona\UTTT.Ejemplo.Persona.Control\bin\Debug\EASendMail.dll

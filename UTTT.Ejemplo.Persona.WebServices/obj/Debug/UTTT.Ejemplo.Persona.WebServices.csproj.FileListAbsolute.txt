@@ -26,6 +26,7 @@ C:\Users\User\Desktop\UTTT\Manuales\Manual\UTTT.Ejemplo.Persona\UTTT.Ejemplo.Per
 C:\Users\carol\Desktop\Desarrollo Web\Manuales\Manual\UTTT.Ejemplo.Persona\UTTT.Ejemplo.Persona.WebServices\bin\UTTT.Ejemplo.Persona.WebServices.dll.config
 C:\Users\carol\Desktop\Desarrollo Web\Manuales\Manual\UTTT.Ejemplo.Persona\UTTT.Ejemplo.Persona.WebServices\bin\UTTT.Ejemplo.Persona.WebServices.dll
 C:\Users\carol\Desktop\Desarrollo Web\Manuales\Manual\UTTT.Ejemplo.Persona\UTTT.Ejemplo.Persona.WebServices\bin\UTTT.Ejemplo.Persona.WebServices.pdb
+C:\Users\carol\Desktop\Desarrollo Web\Manuales\Manual\UTTT.Ejemplo.Persona\UTTT.Ejemplo.Persona.WebServices\bin\EASendMail.dll
 C:\Users\carol\Desktop\Desarrollo Web\Manuales\Manual\UTTT.Ejemplo.Persona\UTTT.Ejemplo.Persona.WebServices\bin\UTTT.Ejemplo.Linq.Data.dll
 C:\Users\carol\Desktop\Desarrollo Web\Manuales\Manual\UTTT.Ejemplo.Persona\UTTT.Ejemplo.Persona.WebServices\bin\UTTT.Ejemplo.Persona.Data.dll
 C:\Users\carol\Desktop\Desarrollo Web\Manuales\Manual\UTTT.Ejemplo.Persona\UTTT.Ejemplo.Persona.WebServices\bin\UTTT.Ejemplo.Linq.Data.pdb
@@ -36,4 +37,3 @@ C:\Users\carol\Desktop\Desarrollo Web\Manuales\Manual\UTTT.Ejemplo.Persona\UTTT.
 C:\Users\carol\Desktop\Desarrollo Web\Manuales\Manual\UTTT.Ejemplo.Persona\UTTT.Ejemplo.Persona.WebServices\obj\Debug\UTTT.Ejemplo.Persona.WebServices.csproj.CopyComplete
 C:\Users\carol\Desktop\Desarrollo Web\Manuales\Manual\UTTT.Ejemplo.Persona\UTTT.Ejemplo.Persona.WebServices\obj\Debug\UTTT.Ejemplo.Persona.WebServices.dll
 C:\Users\carol\Desktop\Desarrollo Web\Manuales\Manual\UTTT.Ejemplo.Persona\UTTT.Ejemplo.Persona.WebServices\obj\Debug\UTTT.Ejemplo.Persona.WebServices.pdb
-C:\Users\carol\Desktop\Desarrollo Web\Manuales\Manual\UTTT.Ejemplo.Persona\UTTT.Ejemplo.Persona.WebServices\bin\EASendMail.dll

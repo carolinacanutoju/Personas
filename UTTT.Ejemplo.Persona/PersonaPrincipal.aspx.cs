@@ -47,7 +47,7 @@ namespace UTTT.Ejemplo.Persona
             }
             catch (Exception _e)
             {
-                this.showMessage("Ha ocurrido un problema al cargar la página");               
+                this.showMessage("Ha Ocurrido Un Problema Al Cargar La Página");               
             }
         }
 
@@ -59,7 +59,7 @@ namespace UTTT.Ejemplo.Persona
             }
             catch (Exception _e)
             {
-                this.showMessage("Ha ocurrido un problema al buscar");
+                this.showMessage("Ha Ocurrido Un Problema Al Buscar");
             }
         }
 
@@ -76,7 +76,7 @@ namespace UTTT.Ejemplo.Persona
             }
             catch (Exception _e)
             {
-                this.showMessage("Ha ocurrido un problema al agregar");
+                this.showMessage("Ha Ocurrido Un Problema Al Agregar");
             }
         }
 
@@ -135,7 +135,7 @@ namespace UTTT.Ejemplo.Persona
             }
             catch (Exception _e)
             {
-                this.showMessage("Ha ocurrido un problema al seleccionar");
+                this.showMessage("Ha ocurrido Un Problema Al Seleccionar");
             }
         }
 
@@ -171,7 +171,7 @@ namespace UTTT.Ejemplo.Persona
                     c => c.id == _idPersona);
                 dcDelete.GetTable<UTTT.Ejemplo.Linq.Data.Entity.Persona>().DeleteOnSubmit(persona);
                 dcDelete.SubmitChanges();
-                this.showMessage("El registro se agrego correctamente.");
+                this.showMessage("El Registro Se Elimino Correctamente");
                 this.DataSourcePersona.RaiseViewChanged();                
             }
             catch (Exception _e)

@@ -40,10 +40,13 @@ C:\Users\User\Desktop\UTTT\Manuales\Manual\UTTT.Ejemplo.Persona\UTTT.Ejemplo.Per
 C:\Users\User\Desktop\UTTT\Manuales\Manual\UTTT.Ejemplo.Persona\UTTT.Ejemplo.Persona\obj\Debug\UTTT.Ejemplo.Persona.dll
 C:\Users\User\Desktop\UTTT\Manuales\Manual\UTTT.Ejemplo.Persona\UTTT.Ejemplo.Persona\obj\Debug\UTTT.Ejemplo.Persona.pdb
 C:\Users\carol\Desktop\Desarrollo Web\Manuales\Manual\UTTT.Ejemplo.Persona\UTTT.Ejemplo.Persona\obj\Debug\UTTT.Ejemplo.Persona.csprojAssemblyReference.cache
+C:\Users\carol\Desktop\Desarrollo Web\Manuales\Manual\UTTT.Ejemplo.Persona\UTTT.Ejemplo.Persona\obj\Debug\UTTT.Ejemplo.Persona.Properties.Resources.resources
+C:\Users\carol\Desktop\Desarrollo Web\Manuales\Manual\UTTT.Ejemplo.Persona\UTTT.Ejemplo.Persona\obj\Debug\UTTT.Ejemplo.Persona.csproj.GenerateResource.cache
 C:\Users\carol\Desktop\Desarrollo Web\Manuales\Manual\UTTT.Ejemplo.Persona\UTTT.Ejemplo.Persona\obj\Debug\UTTT.Ejemplo.Persona.csproj.CoreCompileInputs.cache
 C:\Users\carol\Desktop\Desarrollo Web\Manuales\Manual\UTTT.Ejemplo.Persona\UTTT.Ejemplo.Persona\bin\UTTT.Ejemplo.Persona.dll.config
 C:\Users\carol\Desktop\Desarrollo Web\Manuales\Manual\UTTT.Ejemplo.Persona\UTTT.Ejemplo.Persona\bin\UTTT.Ejemplo.Persona.dll
 C:\Users\carol\Desktop\Desarrollo Web\Manuales\Manual\UTTT.Ejemplo.Persona\UTTT.Ejemplo.Persona\bin\UTTT.Ejemplo.Persona.pdb
+C:\Users\carol\Desktop\Desarrollo Web\Manuales\Manual\UTTT.Ejemplo.Persona\UTTT.Ejemplo.Persona\bin\EASendMail.dll
 C:\Users\carol\Desktop\Desarrollo Web\Manuales\Manual\UTTT.Ejemplo.Persona\UTTT.Ejemplo.Persona\bin\UTTT.Ejemplo.Linq.Data.dll
 C:\Users\carol\Desktop\Desarrollo Web\Manuales\Manual\UTTT.Ejemplo.Persona\UTTT.Ejemplo.Persona\bin\UTTT.Ejemplo.Persona.Control.dll
 C:\Users\carol\Desktop\Desarrollo Web\Manuales\Manual\UTTT.Ejemplo.Persona\UTTT.Ejemplo.Persona\bin\UTTT.Ejemplo.Persona.Data.dll
@@ -54,6 +57,3 @@ C:\Users\carol\Desktop\Desarrollo Web\Manuales\Manual\UTTT.Ejemplo.Persona\UTTT.
 C:\Users\carol\Desktop\Desarrollo Web\Manuales\Manual\UTTT.Ejemplo.Persona\UTTT.Ejemplo.Persona\obj\Debug\UTTT.Ejemplo.Persona.csproj.CopyComplete
 C:\Users\carol\Desktop\Desarrollo Web\Manuales\Manual\UTTT.Ejemplo.Persona\UTTT.Ejemplo.Persona\obj\Debug\UTTT.Ejemplo.Persona.dll
 C:\Users\carol\Desktop\Desarrollo Web\Manuales\Manual\UTTT.Ejemplo.Persona\UTTT.Ejemplo.Persona\obj\Debug\UTTT.Ejemplo.Persona.pdb
-C:\Users\carol\Desktop\Desarrollo Web\Manuales\Manual\UTTT.Ejemplo.Persona\UTTT.Ejemplo.Persona\bin\EASendMail.dll
-C:\Users\carol\Desktop\Desarrollo Web\Manuales\Manual\UTTT.Ejemplo.Persona\UTTT.Ejemplo.Persona\obj\Debug\UTTT.Ejemplo.Persona.Properties.Resources.resources
-C:\Users\carol\Desktop\Desarrollo Web\Manuales\Manual\UTTT.Ejemplo.Persona\UTTT.Ejemplo.Persona\obj\Debug\UTTT.Ejemplo.Persona.csproj.GenerateResource.cache

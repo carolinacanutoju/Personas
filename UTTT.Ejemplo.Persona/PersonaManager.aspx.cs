@@ -81,6 +81,7 @@ namespace UTTT.Ejemplo.Persona
 
                     {
                         this.lblAccion.Text = "Editar";
+                        ddlSexo.Enabled = false;
                         this.txtNombre.Text = this.baseEntity.strNombre;
                         this.txtAPaterno.Text = this.baseEntity.strAPaterno;
                         this.txtAMaterno.Text = this.baseEntity.strAMaterno;
@@ -97,7 +98,7 @@ namespace UTTT.Ejemplo.Persona
                         this.txtRfc.Text = this.baseEntity.strRcf;
 
 
-                        this.setItem(ref this.ddlSexo, baseEntity.CatSexo.strValor);
+                        this.setItemEditar(ref this.ddlSexo, baseEntity.CatSexo.strValor);
                     }                
                 }
 
@@ -122,6 +123,7 @@ namespace UTTT.Ejemplo.Persona
                 if (edad < 18)
                 {
                     this.showMessage("No puedes registrarte ya que eres menor de edad, <<Para Mayores de 18>>");
+                    this.lblCalendario.Visible = true;
 
                 }
                 else
@@ -183,6 +185,11 @@ namespace UTTT.Ejemplo.Persona
                         persona.strAMaterno = this.txtAMaterno.Text.Trim();
                         persona.strAPaterno = this.txtAPaterno.Text.Trim();
                         persona.idCatSexo = int.Parse(this.ddlSexo.Text);
+                        DateTime fechaNacimiento = this.dteCalendar.SelectedDate.Date;
+                        persona.dteFechaNacimiento = fechaNacimiento;
+                        persona.strCorreoElectronico = this.txtCorreoElectronico.Text.Trim();
+                        persona.intCodigoPostal = int.Parse(this.txtCodigoPostal.Text);
+                        persona.strRcf = this.txtRfc.Text.Trim();
                         dcGuardar.SubmitChanges();
                         this.showMessage("El registro se Edito con Exitó");
                         this.Response.Redirect("~/PersonaPrincipal.aspx", false);
@@ -254,6 +261,20 @@ namespace UTTT.Ejemplo.Persona
             _control.Items.FindByText(_value).Selected = true;
         }
 
+        public void setItemEditar(ref DropDownList _control, String _value)
+        {
+            foreach (ListItem item in _control.Items)
+            {
+                if (item.Value == _value)
+                {
+                    item.Enabled = false;
+
+                    break;
+                }
+            }
+            _control.Items.FindByText(_value).Selected = true;
+        }
+
 
         #region Metodos
 
@@ -278,9 +299,9 @@ namespace UTTT.Ejemplo.Persona
             }
             
 
-            if (int.Parse(_persona.strClaveUnica) < 1 || int.Parse(_persona.strClaveUnica) > 999)
+            if (int.Parse(_persona.strClaveUnica) < 100 || int.Parse(_persona.strClaveUnica) > 1000)
             {
-                _mensaje = "Se encuentra fuera del rango 1-1000";
+                _mensaje = "Se Encuentra Fuera de Rango 100-1000";
                 return false;
             }
 
@@ -296,6 +317,12 @@ namespace UTTT.Ejemplo.Persona
                 _mensaje = "Exedió el Número de Carácteres Permitidos";
                 return false;
             }
+            string nombre = _persona.strNombre.Trim();
+            if (nombre.Length < 3)
+            {
+                _mensaje = "Escriba Más de Tres Carácteres";
+                return false;
+            }
 
             if (_persona.strAPaterno.Equals(String.Empty))
             {
@@ -307,7 +334,13 @@ namespace UTTT.Ejemplo.Persona
                 _mensaje = "Exedió el Número de Carácteres Permitidos";
                 return false;
             }
-            
+            string strAPaterno = _persona.strAPaterno.Trim();
+            if (strAPaterno.Length < 3)
+            {
+                _mensaje = "Escriba Más de Tres Carácteres";
+                return false;
+            }
+
             if (_persona.strAMaterno.Equals(String.Empty))
             {
                 _mensaje = "El Campo Apellido Materno se Encuentra Vacío";
@@ -318,10 +351,13 @@ namespace UTTT.Ejemplo.Persona
                 _mensaje = "Exedió el Número de Carácteres Permitidos";
                 return false;
             }
-           
+            string strAMaterno = _persona.strAMaterno.Trim();
+            if (strAMaterno.Length < 3)
+            {
+                _mensaje = "Escriba Más de Tres Carácteres";
+                return false;
+            }
 
-
-            
             if (_persona.strCorreoElectronico.Equals(String.Empty))
             {
                 _mensaje = "El Campo Correo Eléctronico se Encuentra Vacío";
@@ -332,7 +368,13 @@ namespace UTTT.Ejemplo.Persona
                 _mensaje = "Exedió el Número de Carácteres Permitidos";
                 return false;
             }
-            
+            int j = 0;
+            if (int.TryParse(_persona.intCodigoPostal.ToString(), out j) == false)
+            {
+                _mensaje = "El Campo Codigo Postal Solo Acepta Números";
+                return false;
+            }
+
             if (_persona.intCodigoPostal.Equals(String.Empty))
             {
                 _mensaje = "El Campo Codigo Postal se Encuentra Vacío";
@@ -475,7 +517,7 @@ namespace UTTT.Ejemplo.Persona
 
         protected void dteCalendar_SelectionChanged(object sender, EventArgs e)
         {
-           
+            this.lblCalendario.Visible = false;
         }
     }
 }
